@@ -1,0 +1,4 @@
+.idea
+/examples/.ipynb_checkpoints
+/SADGNet/__pycache__
+/SADGNet/models
