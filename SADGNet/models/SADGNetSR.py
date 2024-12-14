@@ -3,7 +3,7 @@ import torch
 from torch import nn
 import torch.nn.functional as F
 from SADGNet.utils.utils import act_str2obj, get_optimizer, DiscreteLabels1, EarlyStopping
-from SADGNet.utils.metrics import calculate_c_index, calculate_mae, calculate_mae2
+from SADGNet.utils.metrics import calculate_c_index, calculate_mae
 from SADGNet.utils.logger import my_logger
 from SADGNet.utils.data_loader import make_dataloader1
 from SADGNet.utils.loss import hit_rank_loss, hit_loss, mae_loss
@@ -307,6 +307,4 @@ class SADGNetSR(BaseEstimator):
         time_index, probability_array = self.predict_survival(x)
         return calculate_mae(time_index, probability_array, y)
 
-    def get_mae2(self, x, y):
-        time_index, probability_array = self.predict_survival(x)
-        return calculate_mae2(time_index, probability_array, y)
+
