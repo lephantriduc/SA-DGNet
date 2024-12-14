@@ -2,7 +2,7 @@
 import torch
 import torch.nn.functional as F
 from SADGNet.utils.utils import get_optimizer, DiscreteLabels2, EarlyStopping
-from SADGNet.utils.metrics import calculate_c_index_cr, calculate_mae_cr
+from SADGNet.utils.metrics import calculate_c_index_cr, calculate_mae_cr, calculate_mae_cr2
 from SADGNet.utils.logger import my_logger
 from SADGNet.utils.data_loader import make_dataloader2
 from SADGNet.utils.loss import hit_rank_loss_cr, hit_loss_cr, mae_loss_cr
@@ -172,3 +172,7 @@ class SADGNetCRs(BaseEstimator):
     def get_mae(self, x, y):
         time_index, probability_array = self.predict_survival(x)
         return calculate_mae_cr(time_index, probability_array, y)
+
+    def get_mae2(self, x, y):
+        time_index, probability_array = self.predict_survival(x)
+        return calculate_mae_cr2(time_index, probability_array, y)
