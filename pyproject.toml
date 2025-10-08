@@ -1,8 +1,0 @@
-[project]
-requires-python = "==3.8.16"
-
-dependencies = [
-    "pytorch==1.12.1",
-    "pycox==0.2.3",
-    "scikit-learn==1.2.2"
-]
